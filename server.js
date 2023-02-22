@@ -6,6 +6,9 @@ const app = express();
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/Pages/Main.html');
 });
+app.get('/info.json', (req, res) => {
+	res.sendFile(__dirname + '/Pages/info.json');
+});
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

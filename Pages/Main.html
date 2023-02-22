@@ -2,10 +2,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>site</title>
     <style>
         #test sub{
-            color: red;
+            color: green;
             font-size: 10px;
         }
         h1
@@ -26,8 +26,11 @@
             grid-template-columns: repeat(18, auto);
 
         }
-
         .grid-item {
+            -webkit-user-select: none; /* Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -213,12 +216,10 @@
     <script>
         let current = [];
         function toFormulaString(elements){
-            
             let r = "";
             let already = {};
             for(let i = 0; i < elements.length; i++){
                 let element = elements[i];
-                alert(element);
                 if(Object.keys(already).includes(element)){
                     already[element]++;
                     continue;
@@ -233,9 +234,26 @@
             }
             return r;
         }
+        function getWeight(elements){
+            let r = 0;
+            for(let i = 0; i < elements.length; i++){
+                let element = elements[i];
+                
+                fetch(window.location.href + "/info.json").then(function(response){
+                    return response.json();
+                }).then(function(json){
+                    r += json[element];
+                    
+                });
+            }
+            return r;
+        }
         function log(e){
+            if(e.target.classList.contains("nothing")){
+                return;
+            }
             current.push(e.target.id);
-            document.getElementById("test").innerHTML = toFormulaString(current);
+            document.getElementById("test").innerHTML = toFormulaString(current) + " weight: " + getWeight(current);
         }
         for(let i of document.getElementsByClassName("grid-item")){
             i.addEventListener("click", log);
