@@ -11,8 +11,10 @@
         }
         .bottomrows
         {
+            padding: 5% 5%;
+            width: 90%;
             display: grid;
-            grid-template-columns: repeat(18, auto);
+            grid-template-columns: repeat(15, auto);
         }
         .grid {
             width:100%;
@@ -22,6 +24,7 @@
         }
 
         .grid-item {
+            cursor: pointer;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             font-size: 30px;
@@ -29,12 +32,9 @@
         }
 
         .nothing {
-            background-color: rgba(255, 0, 0, 0.8);
+            cursor: default;
+            background-color: rgba(0, 0, 0, 0.8);
             border: 0px;
-        }
-
-        #He{
-            align-self: end;
         }
     </style>
 </head>
@@ -45,7 +45,7 @@
         Log:
     </div>
     <div class="grid">
-        <div class="grid-item" id="H">H</div>
+        <div class="grid-item" id= "H ">H </div>
         <div class="grid-item nothing"></div>
         <div class="grid-item nothing"></div>
         <div class="grid-item nothing"></div>
@@ -93,17 +93,17 @@
         <div class="grid-item nothing"></div>
         <div class="grid-item nothing"></div>
         <div class="grid-item nothing"></div>
-        <div class="grid-item" id="Al">Al</div>
-        <div class="grid-item" id="Si">Si</div>
-        <div class="grid-item" id="P">P</div>
-        <div class="grid-item" id="S">S</div>
-        <div class="grid-item" id="Cl">Cl</div>
-        <div class="grid-item" id="Ar">Ar</div>
-        <div class="grid-item" id="K">K</div>
-        <div class="grid-item" id="Ca">Ca</div>
+        <div class="grid-item" id= "Al">Al</div>
+        <div class="grid-item" id= "Si">Si</div>
+        <div class="grid-item" id= "P ">P </div>
+        <div class="grid-item" id= "S ">S </div>
+        <div class="grid-item" id= "Cl">Cl</div>
+        <div class="grid-item" id= "Ar">Ar</div>
+        <div class="grid-item" id= "K ">K </div>
+        <div class="grid-item" id= "Ca">Ca</div>
         <div class="grid-item" id = "Sc">Sc</div>
         <div class="grid-item" id = "Ti">Ti</div>
-        <div class="grid-item" id = "V">V</div>
+        <div class="grid-item" id = "V ">V </div>
         <div class="grid-item" id = "Cr">Cr</div>
         <div class="grid-item" id = "Mn">Mn</div>
         <div class="grid-item" id = "Fe">Fe</div>
@@ -119,7 +119,7 @@
         <div class="grid-item" id = "Kr">Kr</div>
         <div class="grid-item" id = "Rb">Rb</div>
         <div class="grid-item" id = "Sr">Sr</div>
-        <div class="grid-item" id = "Y">Y</div>
+        <div class="grid-item" id = "Y" >Y </div>
         <div class="grid-item" id = "Zr">Zr</div>
         <div class="grid-item" id = "Nb">Nb</div>
         <div class="grid-item" id = "Mo">Mo</div>
@@ -133,14 +133,14 @@
         <div class="grid-item" id = "Sn">Sn</div>
         <div class="grid-item" id = "Sb">Sb</div>
         <div class="grid-item" id = "Te">Te</div>
-        <div class="grid-item" id = "I">I</div>
+        <div class="grid-item" id = "I ">I </div>
         <div class="grid-item" id = "Xe">Xe</div>
         <div class="grid-item" id = "Cs">Cs</div>
         <div class="grid-item" id = "Ba">Ba</div>
         <div class="grid-item" id = "La">La</div>
         <div class="grid-item" id = "Hf">Hf</div>
         <div class="grid-item" id = "Ta">Ta</div>
-        <div class="grid-item" id = "W">W</div>
+        <div class="grid-item" id = "W ">W </div>
         <div class="grid-item" id = "Re">Re</div>
         <div class="grid-item" id = "Os">Os</div>
         <div class="grid-item" id = "Ir">Ir</div>
@@ -189,12 +189,31 @@
             <div class="grid-item" id = "Tm">Tm</div>
             <div class="grid-item" id = "Yb">Yb</div>
             <div class="grid-item" id = "Lu">Lu</div>
+            <div class="grid-item" id = "Ac">Ac</div>
+            <div class="grid-item" id = "Th">Th</div>
+            <div class="grid-item" id = "Pa">Pa</div>
+            <div class="grid-item" id = "U ">U </div>
+            <div class="grid-item" id = "Np">Np</div>
+            <div class="grid-item" id = "Pu">Pu</div>
+            <div class="grid-item" id = "Am">Am</div>
+            <div class="grid-item" id = "Cm">Cm</div>
+            <div class="grid-item" id = "Bk">Bk</div>
+            <div class="grid-item" id = "Cf">Cf</div>
+            <div class="grid-item" id = "Es">Es</div>
+            <div class="grid-item" id = "Fm">Fm</div>
+            <div class="grid-item" id = "Md">Md</div>
+            <div class="grid-item" id = "No">No</div>
+            <div class="grid-item" id = "Lr">Lr</div>
 
         </div>
     <script>
+        let current = "";
+        function subscriptDuplicates(str){
+        }
         function log(e){
-            console.log(e.target.id);
-            document.getElementById("test").innerHTML += e.target.id;
+            current += e.target.id;
+            current = subscriptDuplicates(current);
+            document.getElementById("test").innerHTML = current
         }
         for(let i of document.getElementsByClassName("grid-item")){
             i.addEventListener("click", log);
