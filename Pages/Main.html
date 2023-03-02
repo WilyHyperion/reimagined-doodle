@@ -1,334 +1,444 @@
 <!DOCTYPE html>
 
 <head>
-    <meta charset="utf-8">
-    <title>site</title>
-    <style>
-        #test sub {
-            color: green;
-            font-size: 10px;
-        }
+  <meta charset="utf-8" />
+  <title>site</title>
+  <style>
+    #test sub {
+      color: green;
+      font-size: 10px;
+    }
 
-        h1 {
-            font-size: 50px;
-            text-align: center;
-        }
+    h1 {
+      font-size: 50px;
+      text-align: center;
+    }
 
-        .bottomrows {
-            padding: 5% 5%;
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(15, auto);
-        }
+    .bottomrows {
+      padding: 5% 5%;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(15, auto);
+    }
 
-        .grid {
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(18, auto);
+    .grid {
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(18, auto);
+    }
 
-        }
+    .grid-item {
+      -webkit-user-select: none;
+      /* Safari */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* IE10+/Edge */
+      user-select: none;
+      /* Standard */
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border: 1px solid grey;
+      font-size: 30px;
+      text-align: center;
+    }
 
-        .grid-item {
-            -webkit-user-select: none;
-            /* Safari */
-            -moz-user-select: none;
-            /* Firefox */
-            -ms-user-select: none;
-            /* IE10+/Edge */
-            user-select: none;
-            /* Standard */
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border: 1px solid grey;
-            font-size: 30px;
-            text-align: center;
-        }
+    .nothing {
+      cursor: default;
+      border: 0px;
+    }
 
-        .nothing {
-            cursor: default;
-            border: 0px;
-        }
+    .clear {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
 
-        .clear {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            font-size: 20px;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .buttonContainer {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            padding-bottom: 5%;
-        }
-        #textHolder{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        #textdisplay {
-            padding: 5px;
-            background-color: white;
-            border: 3px solid grey;
-            margin: 10px;
-            font-size: 30px;
-        }
-    </style>
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding-bottom: 5%;
+    }
+    #textHolder {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #textdisplay {
+      padding: 5px;
+      background-color: white;
+      border: 3px solid grey;
+      margin: 10px;
+      font-size: 30px;
+    }
+    #formula {
+      padding: 5px;
+      background-color: white;
+      border: 3px solid grey;
+      margin: 10px;
+      font-size: 30px;
+    }
+    .symbols {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .symbols button {
+      margin: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>page</h1>
-    <div class="buttonContainer">
-        <button onclick="myFunction()" class="clear">Clear</button>
-    </div>
-    <div id="textHolder">
-        <div id="textdisplay">
-            Choose an element
-        </div>
-    </div>
-    <div class="grid">
-        <div class="grid-item" id="H">H</div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item" id="He">He</div>
-        <div class="grid-item" id="Li">Li</div>
-        <div class="grid-item" id="Be">Be</div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item" id="B">B</div>
-        <div class="grid-item" id="C">C</div>
-        <div class="grid-item" id="N">N</div>
-        <div class="grid-item" id="O">O</div>
-        <div class="grid-item" id="F">F</div>
-        <div class="grid-item" id="Ne">Ne</div>
-        <div class="grid-item" id="Na">Na</div>
-        <div class="grid-item" id="Mg">Mg</div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item nothing"></div>
-        <div class="grid-item" id="Al">Al</div>
-        <div class="grid-item" id="Si">Si</div>
-        <div class="grid-item" id="P">P</div>
-        <div class="grid-item" id="S">S</div>
-        <div class="grid-item" id="Cl">Cl</div>
-        <div class="grid-item" id="Ar">Ar</div>
-        <div class="grid-item" id="K">K</div>
-        <div class="grid-item" id="Ca">Ca</div>
-        <div class="grid-item" id="Sc">Sc</div>
-        <div class="grid-item" id="Ti">Ti</div>
-        <div class="grid-item" id="V ">V </div>
-        <div class="grid-item" id="Cr">Cr</div>
-        <div class="grid-item" id="Mn">Mn</div>
-        <div class="grid-item" id="Fe">Fe</div>
-        <div class="grid-item" id="Co">Co</div>
-        <div class="grid-item" id="Ni">Ni</div>
-        <div class="grid-item" id="Cu">Cu</div>
-        <div class="grid-item" id="Zn">Zn</div>
-        <div class="grid-item" id="Ga">Ga</div>
-        <div class="grid-item" id="Ge">Ge</div>
-        <div class="grid-item" id="As">As</div>
-        <div class="grid-item" id="Se">Se</div>
-        <div class="grid-item" id="Br">Br</div>
-        <div class="grid-item" id="Kr">Kr</div>
-        <div class="grid-item" id="Rb">Rb</div>
-        <div class="grid-item" id="Sr">Sr</div>
-        <div class="grid-item" id="Y">Y</div>
-        <div class="grid-item" id="Zr">Zr</div>
-        <div class="grid-item" id="Nb">Nb</div>
-        <div class="grid-item" id="Mo">Mo</div>
-        <div class="grid-item" id="Tc">Tc</div>
-        <div class="grid-item" id="Ru">Ru</div>
-        <div class="grid-item" id="Rh">Rh</div>
-        <div class="grid-item" id="Pd">Pd</div>
-        <div class="grid-item" id="Ag">Ag</div>
-        <div class="grid-item" id="Cd">Cd</div>
-        <div class="grid-item" id="In">In</div>
-        <div class="grid-item" id="Sn">Sn</div>
-        <div class="grid-item" id="Sb">Sb</div>
-        <div class="grid-item" id="Te">Te</div>
-        <div class="grid-item" id="I">I</div>
-        <div class="grid-item" id="Xe">Xe</div>
-        <div class="grid-item" id="Cs">Cs</div>
-        <div class="grid-item" id="Ba">Ba</div>
-        <div class="grid-item" id="La">La</div>
-        <div class="grid-item" id="Hf">Hf</div>
-        <div class="grid-item" id="Ta">Ta</div>
-        <div class="grid-item" id="W">W</div>
-        <div class="grid-item" id="Re">Re</div>
-        <div class="grid-item" id="Os">Os</div>
-        <div class="grid-item" id="Ir">Ir</div>
-        <div class="grid-item" id="Pt">Pt</div>
-        <div class="grid-item" id="Au">Au</div>
-        <div class="grid-item" id="Hg">Hg</div>
-        <div class="grid-item" id="Tl">Tl</div>
-        <div class="grid-item" id="Pb">Pb</div>
-        <div class="grid-item" id="Bi">Bi</div>
-        <div class="grid-item" id="Po">Po</div>
-        <div class="grid-item" id="At">At</div>
-        <div class="grid-item" id="Rn">Rn</div>
-        <div class="grid-item" id="Fr">Fr</div>
-        <div class="grid-item" id="Ra">Ra</div>
-        <div class="grid-item" id="Ac">Ac</div>
-        <div class="grid-item" id="Rf">Rf</div>
-        <div class="grid-item" id="Db">Db</div>
-        <div class="grid-item" id="Sg">Sg</div>
-        <div class="grid-item" id="Bh">Bh</div>
-        <div class="grid-item" id="Hs">Hs</div>
-        <div class="grid-item" id="Mt">Mt</div>
-        <div class="grid-item" id="Ds">Ds</div>
-        <div class="grid-item" id="Rg">Rg</div>
-        <div class="grid-item" id="Cn">Cn</div>
-        <div class="grid-item" id="Nh">Nh</div>
-        <div class="grid-item" id="Fl">Fl</div>
-        <div class="grid-item" id="Mc">Mc</div>
-        <div class="grid-item" id="Lv">Lv</div>
-        <div class="grid-item" id="Ts">Ts</div>
-        <div class="grid-item" id="Og">Og</div>
-
-    </div>
-    <div class="bottomrows">
-        <div class="grid-item" id="La">La</div>
-        <div class="grid-item" id="Ce">Ce</div>
-        <div class="grid-item" id="Pr">Pr</div>
-        <div class="grid-item" id="Nd">Nd</div>
-        <div class="grid-item" id="Pm">Pm</div>
-        <div class="grid-item" id="Sm">Sm</div>
-        <div class="grid-item" id="Eu">Eu</div>
-        <div class="grid-item" id="Gd">Gd</div>
-        <div class="grid-item" id="Tb">Tb</div>
-        <div class="grid-item" id="Dy">Dy</div>
-        <div class="grid-item" id="Ho">Ho</div>
-        <div class="grid-item" id="Er">Er</div>
-        <div class="grid-item" id="Tm">Tm</div>
-        <div class="grid-item" id="Yb">Yb</div>
-        <div class="grid-item" id="Lu">Lu</div>
-        <div class="grid-item" id="Ac">Ac</div>
-        <div class="grid-item" id="Th">Th</div>
-        <div class="grid-item" id="Pa">Pa</div>
-        <div class="grid-item" id="U">U</div>
-        <div class="grid-item" id="Np">Np</div>
-        <div class="grid-item" id="Pu">Pu</div>
-        <div class="grid-item" id="Am">Am</div>
-        <div class="grid-item" id="Cm">Cm</div>
-        <div class="grid-item" id="Bk">Bk</div>
-        <div class="grid-item" id="Cf">Cf</div>
-        <div class="grid-item" id="Es">Es</div>
-        <div class="grid-item" id="Fm">Fm</div>
-        <div class="grid-item" id="Md">Md</div>
-        <div class="grid-item" id="No">No</div>
-        <div class="grid-item" id="Lr">Lr</div>
-
-    </div>
-    <script>
-        function myFunction() {
-            current = [];
-            document.getElementById("textdisplay").innerHTML = "";
+  <h1>page</h1>
+  <div class="symbols">
+    <button onclick="myFunction()" class="clear">Clear</button>
+    <button onclick="add()">+</button>
+    <button id="onclick" onclick="equal()">-></button>
+    <button onclick="balance()">balance</button>
+  </div>
+  <div id="balanced">
+    balanced equation:
+    <div id="Bequation"></div>
+  </div>
+  <div id="textHolder">
+    <div id="textdisplay">Choose an element</div>
+    <div id="formula">to begin</div>
+  </div>
+  <div class="grid">
+    <div class="grid-item" id="H">H</div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item" id="He">He</div>
+    <div class="grid-item" id="Li">Li</div>
+    <div class="grid-item" id="Be">Be</div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item" id="B">B</div>
+    <div class="grid-item" id="C">C</div>
+    <div class="grid-item" id="N">N</div>
+    <div class="grid-item" id="O">O</div>
+    <div class="grid-item" id="F">F</div>
+    <div class="grid-item" id="Ne">Ne</div>
+    <div class="grid-item" id="Na">Na</div>
+    <div class="grid-item" id="Mg">Mg</div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item nothing"></div>
+    <div class="grid-item" id="Al">Al</div>
+    <div class="grid-item" id="Si">Si</div>
+    <div class="grid-item" id="P">P</div>
+    <div class="grid-item" id="S">S</div>
+    <div class="grid-item" id="Cl">Cl</div>
+    <div class="grid-item" id="Ar">Ar</div>
+    <div class="grid-item" id="K">K</div>
+    <div class="grid-item" id="Ca">Ca</div>
+    <div class="grid-item" id="Sc">Sc</div>
+    <div class="grid-item" id="Ti">Ti</div>
+    <div class="grid-item" id="V ">V</div>
+    <div class="grid-item" id="Cr">Cr</div>
+    <div class="grid-item" id="Mn">Mn</div>
+    <div class="grid-item" id="Fe">Fe</div>
+    <div class="grid-item" id="Co">Co</div>
+    <div class="grid-item" id="Ni">Ni</div>
+    <div class="grid-item" id="Cu">Cu</div>
+    <div class="grid-item" id="Zn">Zn</div>
+    <div class="grid-item" id="Ga">Ga</div>
+    <div class="grid-item" id="Ge">Ge</div>
+    <div class="grid-item" id="As">As</div>
+    <div class="grid-item" id="Se">Se</div>
+    <div class="grid-item" id="Br">Br</div>
+    <div class="grid-item" id="Kr">Kr</div>
+    <div class="grid-item" id="Rb">Rb</div>
+    <div class="grid-item" id="Sr">Sr</div>
+    <div class="grid-item" id="Y">Y</div>
+    <div class="grid-item" id="Zr">Zr</div>
+    <div class="grid-item" id="Nb">Nb</div>
+    <div class="grid-item" id="Mo">Mo</div>
+    <div class="grid-item" id="Tc">Tc</div>
+    <div class="grid-item" id="Ru">Ru</div>
+    <div class="grid-item" id="Rh">Rh</div>
+    <div class="grid-item" id="Pd">Pd</div>
+    <div class="grid-item" id="Ag">Ag</div>
+    <div class="grid-item" id="Cd">Cd</div>
+    <div class="grid-item" id="In">In</div>
+    <div class="grid-item" id="Sn">Sn</div>
+    <div class="grid-item" id="Sb">Sb</div>
+    <div class="grid-item" id="Te">Te</div>
+    <div class="grid-item" id="I">I</div>
+    <div class="grid-item" id="Xe">Xe</div>
+    <div class="grid-item" id="Cs">Cs</div>
+    <div class="grid-item" id="Ba">Ba</div>
+    <div class="grid-item" id="La">La</div>
+    <div class="grid-item" id="Hf">Hf</div>
+    <div class="grid-item" id="Ta">Ta</div>
+    <div class="grid-item" id="W">W</div>
+    <div class="grid-item" id="Re">Re</div>
+    <div class="grid-item" id="Os">Os</div>
+    <div class="grid-item" id="Ir">Ir</div>
+    <div class="grid-item" id="Pt">Pt</div>
+    <div class="grid-item" id="Au">Au</div>
+    <div class="grid-item" id="Hg">Hg</div>
+    <div class="grid-item" id="Tl">Tl</div>
+    <div class="grid-item" id="Pb">Pb</div>
+    <div class="grid-item" id="Bi">Bi</div>
+    <div class="grid-item" id="Po">Po</div>
+    <div class="grid-item" id="At">At</div>
+    <div class="grid-item" id="Rn">Rn</div>
+    <div class="grid-item" id="Fr">Fr</div>
+    <div class="grid-item" id="Ra">Ra</div>
+    <div class="grid-item" id="Ac">Ac</div>
+    <div class="grid-item" id="Rf">Rf</div>
+    <div class="grid-item" id="Db">Db</div>
+    <div class="grid-item" id="Sg">Sg</div>
+    <div class="grid-item" id="Bh">Bh</div>
+    <div class="grid-item" id="Hs">Hs</div>
+    <div class="grid-item" id="Mt">Mt</div>
+    <div class="grid-item" id="Ds">Ds</div>
+    <div class="grid-item" id="Rg">Rg</div>
+    <div class="grid-item" id="Cn">Cn</div>
+    <div class="grid-item" id="Nh">Nh</div>
+    <div class="grid-item" id="Fl">Fl</div>
+    <div class="grid-item" id="Mc">Mc</div>
+    <div class="grid-item" id="Lv">Lv</div>
+    <div class="grid-item" id="Ts">Ts</div>
+    <div class="grid-item" id="Og">Og</div>
+  </div>
+  <div class="bottomrows">
+    <div class="grid-item" id="La">La</div>
+    <div class="grid-item" id="Ce">Ce</div>
+    <div class="grid-item" id="Pr">Pr</div>
+    <div class="grid-item" id="Nd">Nd</div>
+    <div class="grid-item" id="Pm">Pm</div>
+    <div class="grid-item" id="Sm">Sm</div>
+    <div class="grid-item" id="Eu">Eu</div>
+    <div class="grid-item" id="Gd">Gd</div>
+    <div class="grid-item" id="Tb">Tb</div>
+    <div class="grid-item" id="Dy">Dy</div>
+    <div class="grid-item" id="Ho">Ho</div>
+    <div class="grid-item" id="Er">Er</div>
+    <div class="grid-item" id="Tm">Tm</div>
+    <div class="grid-item" id="Yb">Yb</div>
+    <div class="grid-item" id="Lu">Lu</div>
+    <div class="grid-item" id="Ac">Ac</div>
+    <div class="grid-item" id="Th">Th</div>
+    <div class="grid-item" id="Pa">Pa</div>
+    <div class="grid-item" id="U">U</div>
+    <div class="grid-item" id="Np">Np</div>
+    <div class="grid-item" id="Pu">Pu</div>
+    <div class="grid-item" id="Am">Am</div>
+    <div class="grid-item" id="Cm">Cm</div>
+    <div class="grid-item" id="Bk">Bk</div>
+    <div class="grid-item" id="Cf">Cf</div>
+    <div class="grid-item" id="Es">Es</div>
+    <div class="grid-item" id="Fm">Fm</div>
+    <div class="grid-item" id="Md">Md</div>
+    <div class="grid-item" id="No">No</div>
+    <div class="grid-item" id="Lr">Lr</div>
+  </div>
+  <script>
+    var point = 0;
+    function clearBalanced() {
+      document.getElementById("Bequation").innerHTML = "";
+    }
+    function balance() {
+      var balanced = balanceEquation(equation);
+      document.getElementById("Bequation").innerHTML = balanced;
+    }
+    function balanceEquation(eq) {
+      let r = "";
+      for (let e of eq) {
+        if (e[0] == "+") {
+          r += "+";
+          continue;
+        } else if (e[0] == ">") {
+          r += "->";
+          continue;
         }
-        let current = [];
-        function toFormulaString(elements) {
-            let r = "";
-            let already = {};
-            for (let i = 0; i < elements.length; i++) {
-                let element = elements[i];
-                if (Object.keys(already).includes(element)) {
-                    already[element]++;
-                    continue;
-                }
-                already[element] = 1;
+      }
+      return r;
+    }
+    function canAddSymbol(){
+        if(equation.length == 0){
+            return false;
+        }
+        if(equation.at(-1)[0] == "+" || equation.at(-1)[0] == ">"){
+            return false;
+        }
+        return true;
+    }
+    function equal() {
+      if(!canAddSymbol()){
+          return;
+      }
+      point += 2;
+      equation.push([">"]);
+      current = [];
+      document.getElementById("textdisplay").innerHTML += " -> ";
+      document.getElementById("formula").innerHTML = EquationString(equation);
+    }
+    function add() {
+        if(!canAddSymbol()){
+          return;
+      }
+      point += 2;
+      equation.push(["+"]);
+      current = [];
+      document.getElementById("textdisplay").innerHTML += " + ";
+      document.getElementById("formula").innerHTML = EquationString(equation);
+    }
+    function EquationString(elements) {
+      let r = "";
+      for (let e of elements) {
+        if (e[0] == "+") {
+          r += "+";
+          continue;
+        } else if (e[0] == ">") {
+          r += "->";
+          continue;
+        }
+        r += toFormulaString(e);
+      }
+      return r;
+    }
+    function myFunction() {
+      clearBalanced();
+      point = 0;
+      current = [];
+      equation = [];
+      document.getElementById("formula").innerHTML = "";
+      document.getElementById("textdisplay").innerHTML = "";
+    }
+    let equation = [];
+    let current = [];
+    function toFormulaString(elements) {
+      let r = "";
+      let already = {};
+      for (let i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        if (Object.keys(already).includes(element)) {
+          already[element]++;
+          continue;
+        }
+        already[element] = 1;
+      }
+      for (let s of Object.keys(already)) {
+        r += s;
+        if (already[s] > 1) {
+          r += "<sub>" + already[s] + "</sub> ";
+        }
+      }
+      return r;
+    }
+    async function getWeight(elements) {
+      let r = 0.0;
+      await fetch(window.location.href + "info.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (s) {
+          for (let i = 0; i < elements.length; i++) {
+            let element = elements[i];
+            r += s[element]["atomic_weight"];
+          }
+          return r;
+        })
+        .catch(function (e) {});
+      return r;
+    }
+    async function log(e) {
+      if (e.target.classList.contains("nothing")) {
+        return;
+      }
+      balance();
+      //current.push(e.target.id);
+      equation[point] = current;
+      equation[point].push(e.target.id);
+      document.getElementById("formula").innerHTML = EquationString(equation);
+      document.getElementById("textdisplay").innerHTML =
+        (await getName(current)) + " Weight: " + (await getWeight(current));
+    }
+    for (let i of document.getElementsByClassName("grid-item")) {
+      i.addEventListener("click", log);
+    }
+    const prefixes = [
+      "",
+      "Mono",
+      "Di",
+      "Tri",
+      "Tetra",
+      "Penta",
+      "Hexa",
+      "Hepta",
+      "Octa",
+      "Nona",
+      "Deca",
+    ];
+    async function getName(elements) {
+      let r = "";
+      await fetch(window.location.href + "info.json")
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (s) {
+          let already = {};
+          for (let i = 0; i < elements.length; i++) {
+            let element = elements[i];
+            if (Object.keys(already).includes(element)) {
+              already[element]++;
+              continue;
             }
-            for (let s of Object.keys(already)) {
-                r += s;
-                if (already[s] > 1) {
-                    r += ("<sub>" + already[s] + "</sub> ");
-                }
+            already[element] = 1;
+          }
+          for (let e of Object.keys(already)) {
+            let add = "";
+            if (already[e] > 1) {
+              add += prefixes[already[e]];
             }
-            return r;
-        }
-        async function getWeight(elements) {
-            let r = 0.0;
-            await fetch((window.location.href + "info.json")).then(function (response) {
-                return response.json();
-            }).then(function (s) {
-                for (let i = 0; i < elements.length; i++) {
-                    let element = elements[i];
-                    r += s[element]["atomic_weight"];
-                }
-                return r;
-            }).catch(function (e) {
-            });
-            return r;
-        }
-        async function log(e) {
-            if (e.target.classList.contains("nothing")) {
-                return;
-            }
-            current.push(e.target.id);
-            document.getElementById("textdisplay").innerHTML = await getName(current) + "(" + toFormulaString(current) +"), Weight: " + await getWeight(current);
-        }
-        for (let i of document.getElementsByClassName("grid-item")) {
-            i.addEventListener("click", log);
-        }
-        const prefixes = ["", "Mono", "Di", "Tri", "Tetra", "Penta", "Hexa", "Hepta", "Octa", "Nona", "Deca"];
-        async function getName(elements) {
-            let r = "";
-            await fetch((window.location.href + "info.json")).then(function (response) {
-                return response.json();
-            }).then(function (s) {
-                let already = {};
-                for (let i = 0; i < elements.length; i++) {
-                    let element = elements[i];
-                    if(Object.keys(already).includes(element)){
-                        already[element]++;
-                        continue;
-                    }
-                    already[element] = 1;
-                }
-                for(let e of Object.keys(already)){
-
-                    let add = "";
-                    if(already[e] > 1){
-                        add += prefixes[already[e]];
-                    }
-                    r += add + s[e]["name"].toLowerCase()+ " ";
-                    
-                }
-                return r;
-            }).catch(function (e) {
-            });
-            
-            return r;
-        }
-    </script>
+            r += add + s[e]["name"].toLowerCase() + " ";
+          }
+          return r;
+        })
+        .catch(function (e) {});
+      return r;
+    }
+  </script>
 </body>
